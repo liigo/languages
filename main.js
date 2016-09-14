@@ -12,10 +12,16 @@ $.getJSON('data.json', function(data) {
     var b = (rgb >>  0) & 0xff;
     var luminance = (r * 0.299 + g * 0.587 + b * 0.114) / 3;
 
+    const maxchars = 12;
+    var lang_display = lang;
+    if (lang.length > maxchars) {
+      lang_display = lang.substring(0, maxchars - 2) + '…';
+    }
+
     if (luminance < 40) {
-      $('#box').append('<div class="square" style="color:#EEE;background:' + color + '"><a class="light" href="https://github.com/trending?l=' + lang + '">' + lang + '</a></div>')
+      $('#box').append('<div class="square" style="color:#EEE;background:' + color + '"><a class="light" href="https://github.com/trending?l=' + lang + '" title="' + lang + '">' + lang_display + '</a></div>')
     } else {
-      $('#box').append('<div class="square" style="background:' + color + '"><a class="dark" href="https://github.com/trending?l=' + lang + '">' + lang + '</a></div>')
+      $('#box').append('<div class="square" style="background:' + color + '"><a class="dark" href="https://github.com/trending?l=' + lang + '" title="' + lang + '">' + lang_display + '</a></div>')
     }
   }
 });
