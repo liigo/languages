@@ -36,9 +36,9 @@ code {
   flex-flow: row wrap;
 }
 .square {
-  height: 300px;
-  width: 300px;
-  font-size: 28px;
+  height: 30px;
+  width: 100px;
+  font-size: 16px;
   display: flex;
   flex: 1 1 auto;
   justify-content: center;
